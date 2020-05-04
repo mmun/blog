@@ -2,8 +2,8 @@
   "private": true,
   "scripts": {
     "dev": "sapper dev --ext \".svelte .html .md\"",
-    "build": "sapper build --legacy --ext \".svelte .html .md\"",
-    "export": "sapper export --legacy --ext \".svelte .html .md\"",
+    "build": "sapper build --ext \".svelte .html .md\"",
+    "export": "sapper export --ext \".svelte .html .md\"",
     "start": "node __sapper__/build"
   },
   "dependencies": {
