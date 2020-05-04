@@ -5,6 +5,7 @@ import svelte from 'rollup-plugin-svelte';
 import babel from 'rollup-plugin-babel';
 import { terser } from 'rollup-plugin-terser';
 import config from 'sapper/config/rollup.js';
+import { markdown } from 'svelte-preprocess-markdown';
 import pkg from './package.json';
 
 const mode = process.env.NODE_ENV;
@@ -25,7 +26,9 @@ export default {
 			svelte({
 				dev,
 				hydratable: true,
-				emitCss: true
+				emitCss: true,
+				extensions: ['.svelte', '.md'],
+				preprocess: markdown()
 			}),
 			resolve({
 				browser: true,
@@ -68,7 +71,9 @@ export default {
 			}),
 			svelte({
 				generate: 'ssr',
-				dev
+				dev,
+				extensions: ['.svelte', '.md'],
+				preprocess: markdown()
 			}),
 			resolve({
 				dedupe: ['svelte']
